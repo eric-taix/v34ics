@@ -1,0 +1,16 @@
+package org.jared.v34.ics;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class V34icsApplicationTests {
+
+	@Test
+	public void contextLoads() {
+	}
+
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Docket by Eric Taix</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+		<div th:replace="header"/>
+		<!-- Three -->
+			<section id="four" class="wrapper">
+				<div class="inner">
+					<header class="align-center">
+						<h2>Fonctionnalités</h2>
+						<p>Vous ne pourrez plus vous passer de Docket</p>
+					</header>
+					<div class="image round left fix-il">
+						<img src="images/team2.jpg" width="150px" height="150px" alt="Pic 01" />
+					</div>
+					<p><br/>Commencez par sélectionner votre équipe dans le championnat. Vous ne pouvez sélectionner qu'une seule équipe à la fois, cependant rien ne vous empêche de générer plusieurs calendriers.
+						Choisissez ensuite les types d'événements qui vous intéressent parmi les matchs de votre équipe, les tournois, les matchs fédéraux, les réunions de la fédération ou les autres événements.<br/>
+						Enfin cliquez sur générer le lien ou sur télécharger le calendrier.</p>
+
+					<div class="image round right fix-ir">
+						<img src="images/calendar.jpg" width="150px" height="150px" alt="Pic 02" />
+					</div>
+					<p><br/>Le fichier généré ainsi que le lien sont au format iCal. Ce format est un format standard d'événements pour les agendas. Il vous suffit de l'utiliser dans Google Agenda, iCal d'Apple, Outlook et bien d'autres outils de calendrier.
+						Pour plus d'informations sur le format iCal, reportez vous à l'explication de <a href="https://fr.wikipedia.org/wiki/ICalendar">Wikipedia</a>.<br/>
+					</p>
+
+                    <p><br/>Toutes les événements intégrés à votre agenda proviennent du site <a href="http://www.volley34.fr">Volley 34</a>. Les données sont mises à jour régulièrement.
+                        Reportez vous à l'aide de votre logiciel de calendrier pour intégrer le calendrier de ce dernier. </p>
+
+                    <p><br/>Une fois le calendrier généré vous pouvez envoyer le fichier ou le lien à d'autres personnes comme par exemple les membres de votre équipe.
+                        Cependant nous vous conseillons plutôt de créer un calendrier partagé dans votre logiciel préféré.
+                        En effet ce site étant entièrement gratuit il n'est pas prévu pour recevoir de nombreuses demandes. En partageant un calendrier
+                        (avec Google Agenda par exemple), vous faites travailler les serveurs de Google plutôt que ce site et vous pouvez rajouter des informations utiles à votre équipe.</p>
+
+                    <p><br/><b>Ce site est entièrement gratuit, 100% sans publicité garanti et aucune adresse email ne vous sera demandée !</b></p>
+
+				</div>
+				<div class="align-center">
+					<a href="calendars" class="button">C'est parti</a>
+				</div>
+			</section>
+
+		<!-- Footer -->
+		    <div th:replace="footer"/>
+
+		<!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/skel.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+
+	</body>
+</html>
