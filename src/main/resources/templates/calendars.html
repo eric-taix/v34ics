@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Elements - Projection by TEMPLATED</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+        <title>Docket</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body class="subpage">
 
@@ -28,11 +28,9 @@
                                         <div class="12u$">
                                             <div class="select-wrapper">
                                                 <select name="team" id="team">
-                                                    <option value="">- Equipe -</option>
-                                                    <option value="1">VCV / Les Tatouilles</option>
-                                                    <option value="2">VCV / Les Carrés d'As</option>
-                                                    <option value="3">ASPTT 1</option>
-                                                    <option value="4">ASPTT 2</option>
+                                                    <option th:each="team : ${teams}"
+                                                            th:value="${team.getCode()}"
+                                                            th:text="${team.getName()}">T</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -45,7 +43,7 @@
                                 <form method="post" action="#">
                                     <div class="row uniform">
                                         <div class="6u 12u$(small)">
-                                            <input type="checkbox" id="matchs" name="matchs"/>
+                                            <input type="checkbox" id="matchs" name="matchs" checked="true"/>
                                             <label for="matchs">Matchs</label>
                                         </div>
                                         <div class="6u$ 12u$(small)">
@@ -53,15 +51,15 @@
                                             <label for="tournois">Tournois</label>
                                         </div>
                                         <div class="6u 12u$(small)">
-                                            <input type="checkbox" id="federaux" name="federaux" checked="true"/>
+                                            <input type="checkbox" id="federaux" name="federaux"/>
                                             <label for="federaux">Fédéraux</label>
                                         </div>
                                         <div class="6u$ 12u$(small)">
-                                            <input type="checkbox" id="reunions" name="reunions" checked="true"/>
+                                            <input type="checkbox" id="reunions" name="reunions"/>
                                             <label for="reunions">Réunions</label>
                                         </div>
                                         <div class="6u 12u$(small)">
-                                            <input type="checkbox" id="autres" name="autres" checked="true"/>
+                                            <input type="checkbox" id="autres" name="autres"/>
                                             <label for="autres">Autres événements...</label>
                                         </div>
                                     </div>
@@ -70,9 +68,8 @@
 						</div>
                     <br/><br/><br/>
                     <div class="align-center">
-                        <a href="calendars" class="button">Générer le calendrier</a>
+                        <a href="calendars" class="button">Générez le lien</a>
                     </div>
-
                 </div>
                 </section>
 
