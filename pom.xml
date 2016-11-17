@@ -58,6 +58,11 @@
             <artifactId>jcabi-http</artifactId>
             <version>1.16</version>
         </dependency>
+        <dependency>
+            <groupId>net.sf.biweekly</groupId>
+            <artifactId>biweekly</artifactId>
+            <version>0.6.0</version>
+        </dependency>
     </dependencies>
 
     <build>
