@@ -4,4 +4,8 @@ public class DocketException extends Exception {
     public DocketException() {
         super();
     }
+
+    public DocketException(Exception rootCause) {
+        super(rootCause);
+    }
 }

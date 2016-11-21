@@ -3113,7 +3113,7 @@
 /* Footer */
 
 	#footer {
-		padding: 6em 0;
+		padding: 2.5em 0;
 		background: #6cc091;
 		color: #fff;
 		text-align: center;
@@ -3179,5 +3179,21 @@
 
 .footer-text {
     font-size: 82%;
+}
+
+.link {
+	font-size: 1.35em;
+	font-weight: bold;
+	color: #6cc091;
+}
+
+.rounded-btn {
+	font-size: 1.55em;
+	font-weight: bold;
+	background-color: #6cc091;
+	color: white;
+	border-radius: 5px;
+	margin-left: 20px;
+	padding: 6px 12px 6px 12px;
 }
 

@@ -20,10 +20,10 @@
 					</header>
 
 					<!-- Intro -->
+                    <form method="get" action="link">
 						<div class="row">
 							<section class="5u 12u$(medium)">
 								<h2>Votre équipe ?</h2>
-                                <form method="post" action="#">
                                     <div class="row uniform">
                                         <div class="12u$">
                                             <div class="select-wrapper">
@@ -35,7 +35,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                </form>
 							</section>
                             <section class="2u 12u$(medium)">&nbsp;</section>
 							<section class="5u 12u$(medium)">
@@ -60,16 +59,17 @@
                                         </div>
                                         <div class="6u 12u$(small)">
                                             <input type="checkbox" id="autres" name="autres"/>
-                                            <label for="autres">Autres événements...</label>
+                                            <label for="autres">Autres</label>
                                         </div>
                                     </div>
                                 </form>
 							</section>
 						</div>
-                    <br/><br/><br/>
-                    <div class="align-center">
-                        <a href="calendars" class="button">Générez le lien</a>
-                    </div>
+                        <br/><br/><br/>
+                        <div class="align-center">
+                            <a href="#" onclick="javascript:document.forms[0].submit();" class="button">Générer le lien</a>
+                        </div>
+                    </form>
                 </div>
                 </section>
 

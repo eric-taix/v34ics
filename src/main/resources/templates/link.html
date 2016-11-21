@@ -15,15 +15,20 @@
 			<section id="main" class="wrapper">
 				<div class="inner">
 					<header class="align-center">
-						<h2>Lien</h2>
-						<p>Copiez le lien ci-dessous et collez le dans votre logiciel de calendrier</p>
+						<h2>Calendrier</h2>
+						<p>Votre calendrier a été généré</p>
 					</header>
-
                     <div class="align-center">
-                        <span>http://docket.mooo.com/VCV1.ics?type=MTFRA</span>
+                        <p><span>Lien pour l'équipe "VCV/Les tatouilles" et les événements : matchs, réunion, fédéral</span></p>
                     </div>
                     <div class="align-center">
-                        <a href="index" class="button">Retour</a>
+                        <span id="link" th:text="${link}" class="link">http://docket.mooo.com/VCV1.ics?type=MTFRA</span>
+						<a href="#" class="icon fa-copy rounded-btn"></a>
+						<a href="#" onclick="javascript:window.open(document.getElementById('link').textContent)" class="icon fa-download rounded-btn"></a>
+                    </div>
+					<br/><br/><br/>
+                    <div class="align-center">
+                        <a href="#" onclick="javascript:window.history.back()" class="button">Modifier</a>
                     </div>
                 </div>
                 </section>
