@@ -3197,3 +3197,9 @@
 	padding: 6px 12px 6px 12px;
 }
 
+.rounded-btn.zeroclipboard-is-hover {
+	background-color: #3c7854;
+}
+.rounded-btn:focus {
+	outline: 0;
+}
