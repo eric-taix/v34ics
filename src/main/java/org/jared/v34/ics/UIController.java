@@ -36,6 +36,7 @@ public class UIController {
     @RequestMapping(value = "link")
     public String link(Model model,
                        @RequestParam String team,
+                       @RequestParam String teamName,
                        @RequestParam(value = "matchs", defaultValue = "false") boolean match,
                        @RequestParam(value = "tournois", defaultValue = "false") boolean tournment,
                        @RequestParam(value = "federaux", defaultValue = "false") boolean federal,
@@ -46,18 +47,27 @@ public class UIController {
                 (request.getContextPath() != null && !request.getContextPath().isEmpty() ? request.getContextPath() + "/" : "") +
                 team + ".ics?type=";
         link += (match ? "M":"") + (tournment ? "T":"") + (federal ? "F":"") + (meeting ? "R":"") + (other ? "A":"");
+        model.addAttribute("teamName", teamName);
+        String events = (match ? "Matchs, ":"") + (tournment ? "Tournois, ":"") + (federal ? "Fédéraux, ":"") + (meeting ? "Réunions, ":"") + (other ? "Autres, ":"");
+        if (events == null || events.isEmpty()) {
+            model.addAttribute("message", "Vous n'avez sélectionné aucun événement");
+            return "error";
+        }
+        model.addAttribute("events", events.substring(0, events.length() - 2));
         model.addAttribute("link", link);
         return "link";
     }
 
     @ExceptionHandler(value = V34Exception.class)
-    public String handleV34Exception(Model model) {
+    public String handleV34Exception(Model model, Exception ex) {
+        LOG.error("Error wit UI", ex);
         model.addAttribute("message", "Il semble y avoir un problème quand je discute avec le site Volley34 !");
         return "error";
     }
 
     @ExceptionHandler(value = Exception.class)
-    public String handleDefaultException(Model model) {
+    public String handleDefaultException(Model model, Exception ex) {
+        LOG.error("Error wit UI", ex);
         model.addAttribute("message", "Aie ! Je n'avais à priori pas prévu ce problème.");
         return "error";
     }

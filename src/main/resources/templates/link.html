@@ -19,7 +19,7 @@
 						<p>Votre calendrier a été généré</p>
 					</header>
                     <div class="align-center">
-                        <p><span>Lien pour l'équipe "VCV/Les tatouilles" et les événements : matchs, réunion, fédéral</span></p>
+                        <p><span>Lien pour l'équipe "</span><span th:text="${teamName}"></span><span>" et les événements </span><span th:text="${events}"></span></p>
                     </div>
                     <div class="align-center">
                         <span id="link" th:text="${link}" class="link">http://docket.mooo.com/VCV1.ics?type=MTFRA</span>
