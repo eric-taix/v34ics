@@ -5,9 +5,19 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="subpage">
+        <script type="application/javascript">
+            function changeTeam(text) {
+                document.getElementById("teamName").value = text;
+            }
 
+            function onload() {
+                var s = document.getElementById("team");
+                document.getElementById("teamName").value = s.options[s.selectedIndex].innerHTML;
+            }
+        </script>
+	</head>
+	<body class="subpage" onload="javascript:onload();">
+        <div th:replace="ga"/>
 		<!-- Header -->
 		<div th:replace="header"/>
 
@@ -20,14 +30,15 @@
 					</header>
 
 					<!-- Intro -->
+                    <form method="get" action="link">
+                        <input type="hidden" name="teamName" id="teamName"></input>
 						<div class="row">
 							<section class="5u 12u$(medium)">
 								<h2>Votre équipe ?</h2>
-                                <form method="post" action="#">
                                     <div class="row uniform">
                                         <div class="12u$">
                                             <div class="select-wrapper">
-                                                <select name="team" id="team">
+                                                <select name="team" id="team" onchange="javascript:changeTeam(this.options[this.selectedIndex].innerHTML);">
                                                     <option th:each="team : ${teams}"
                                                             th:value="${team.getCode()}"
                                                             th:text="${team.getName()}">T</option>
@@ -35,7 +46,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                </form>
 							</section>
                             <section class="2u 12u$(medium)">&nbsp;</section>
 							<section class="5u 12u$(medium)">
@@ -60,16 +70,17 @@
                                         </div>
                                         <div class="6u 12u$(small)">
                                             <input type="checkbox" id="autres" name="autres"/>
-                                            <label for="autres">Autres événements...</label>
+                                            <label for="autres">Autres</label>
                                         </div>
                                     </div>
                                 </form>
 							</section>
 						</div>
-                    <br/><br/><br/>
-                    <div class="align-center">
-                        <a href="calendars" class="button">Générez le lien</a>
-                    </div>
+                        <br/><br/><br/>
+                        <div class="align-center">
+                            <a href="#" onclick="javascript:document.forms[0].submit();" class="button">Générer le lien</a>
+                        </div>
+                    </form>
                 </div>
                 </section>
 

@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+        <title>Docket</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+
+	<body class="subpage">
+        <div th:replace="ga"/>
+		<!-- Header -->
+		<div th:replace="header"/>
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<div class="inner">
+					<header class="align-center">
+						<h2>Calendrier</h2>
+						<p>Votre calendrier a été généré</p>
+					</header>
+                    <div class="align-center">
+                        <p><span>Lien pour l'équipe "</span><span th:text="${teamName}"></span><span>" et les événements </span><span th:text="${events}"></span><br/>
+                        <span>Copiez le lien çi-dessous en cliquant sur le bouton à droite du lien</span></p>
+                    </div>
+                    <div class="align-center">
+                        <span id="link" th:text="${link}" class="link">http://docket.mooo.com/VCV1.ics?type=MTFRA</span>
+						<a href="#" data-clipboard-target="link" id="clipboard-button" class="icon fa-copy rounded-btn"></a>
+                    </div>
+					<br/>
+                    <div class="align-center">
+                        <p><span id="copied"></span></p>
+                    </div>
+                    <br/><br/>
+                    <div class="align-center">
+                        <a href="#" onclick="javascript:window.history.back()" class="button">Modifier</a>
+                    </div>
+                </div>
+                </section>
+
+		<!-- Footer -->
+		<div th:replace="footer"/>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/skel.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/ZeroClipboard.min.js"></script>
+		<script type="application/javascript">
+			$(function() {
+				var client = new ZeroClipboard( $("a#clipboard-button"));
+				client.on( 'ready', function(event) {
+					console.log('ZeroClipboard has been initialized');
+                    client.on( "aftercopy", function (event) {
+                        $("#copied").html("Bravo, le lien a été copié ! Collez le dans votre agenda");
+                    });
+				});
+			});
+		</script>
+
+	</body>
+</html>
