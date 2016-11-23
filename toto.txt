@@ -2,6 +2,6 @@
 - Cache applicatif for WS volley34
 - Page features to enhance with video
 - Cache front to avoid requesting the application when not necessary ?
-- DNS !
-- Clipboard to copy / paste ICS URL
+X DNS !
+X Clipboard to copy / paste ICS URL
 
