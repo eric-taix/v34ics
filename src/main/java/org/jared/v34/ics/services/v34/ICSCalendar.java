@@ -4,6 +4,8 @@ import biweekly.Biweekly;
 import biweekly.ICalendar;
 import biweekly.component.VAlarm;
 import biweekly.component.VEvent;
+import biweekly.io.TimezoneAssignment;
+import biweekly.io.TimezoneInfo;
 import biweekly.property.Action;
 import biweekly.property.Contact;
 import biweekly.property.Organizer;
@@ -15,13 +17,17 @@ import org.jared.v34.ics.services.Calendar;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.TimeZone;
 
 @Service
 public class ICSCalendar implements Calendar {
 
     @Override
     public String getCalendar(List<Event> events) {
+        TimezoneAssignment newYork = TimezoneAssignment.download(TimeZone.getTimeZone("Europe/Paris"),true);
+
         ICalendar ical = new ICalendar();
+        ical.getTimezoneInfo().setDefaultTimezone(newYork);
         for (Event event : events) {
             VEvent vEvent = new VEvent();
             vEvent.setUid(event.getId());
