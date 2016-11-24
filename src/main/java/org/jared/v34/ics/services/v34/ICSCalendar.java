@@ -4,6 +4,7 @@ import biweekly.Biweekly;
 import biweekly.ICalendar;
 import biweekly.component.VEvent;
 import biweekly.property.Contact;
+import biweekly.property.DateEnd;
 import biweekly.property.Organizer;
 
 import org.jared.v34.ics.model.Event;
@@ -20,6 +21,8 @@ public class ICSCalendar implements Calendar {
     public String getCalendar(List<Event> events) {
 
         ICalendar ical = new ICalendar();
+        ical.addName("Nam of calendar");
+
         for (Event event : events) {
             VEvent vEvent = new VEvent();
             vEvent.setUid(event.getId());
@@ -50,6 +53,6 @@ public class ICSCalendar implements Calendar {
 
             ical.addEvent(vEvent);
         }
-        return Biweekly.write(ical).tz(TimeZone.getTimeZone("Europe/Paris"), true).go();
+        return Biweekly.write(ical).tz(TimeZone.getTimeZone("Europe/Paris"), false).go();
     }
 }
