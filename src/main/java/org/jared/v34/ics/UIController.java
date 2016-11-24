@@ -10,6 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.util.UriUtils;
+
+import java.io.UnsupportedEncodingException;
 
 @org.springframework.stereotype.Controller
 public class UIController {
@@ -42,11 +45,10 @@ public class UIController {
                        @RequestParam(value = "federaux", defaultValue = "false") boolean federal,
                        @RequestParam(value = "reunions", defaultValue = "false") boolean meeting,
                        @RequestParam(value = "autres", defaultValue = "false") boolean other,
-                       HttpServletRequest request) {
-        String link = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + "/" +
-                (request.getContextPath() != null && !request.getContextPath().isEmpty() ? request.getContextPath() + "/" : "") +
-                team + ".ics?type=";
+                       HttpServletRequest request) throws UnsupportedEncodingException {
+        String link = getUrl(request) + team + ".ics?type=";
         link += (match ? "M":"") + (tournment ? "T":"") + (federal ? "F":"") + (meeting ? "R":"") + (other ? "A":"");
+        link += "&name=" + UriUtils.encodeQueryParam(teamName, "UTF-8");
         model.addAttribute("teamName", teamName);
         String events = (match ? "Matchs, ":"") + (tournment ? "Tournois, ":"") + (federal ? "Fédéraux, ":"") + (meeting ? "Réunions, ":"") + (other ? "Autres, ":"");
         if (events == null || events.isEmpty()) {
@@ -56,6 +58,15 @@ public class UIController {
         model.addAttribute("events", events.substring(0, events.length() - 2));
         model.addAttribute("link", link);
         return "link";
+    }
+
+    private String getUrl(HttpServletRequest request) {
+        String url = request.getScheme() + "://" + request.getServerName();
+        if (request.getServerPort() != 80 || request.getScheme().equalsIgnoreCase("http")) {
+            url += ":" + request.getServerPort() + "/";
+        }
+        url += (request.getContextPath() != null && !request.getContextPath().isEmpty() ? request.getContextPath() + "/" : "");
+        return url;
     }
 
     @ExceptionHandler(value = V34Exception.class)
