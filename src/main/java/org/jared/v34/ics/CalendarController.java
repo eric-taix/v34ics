@@ -26,13 +26,13 @@ public class CalendarController {
     @Autowired
     private EventFilterFactory filterFactory;
 
-    @RequestMapping("/{team}.ics")
+    @RequestMapping("/{teamCode}.ics")
     @ResponseBody
-    public String getICS(@PathVariable String team, @RequestParam String type) throws V34Exception {
-        LOG.debug("Requesting ICS calendar for team {}", team);
-        List<Event> events = dataService.getAllEvents(team);
+    public String getICS(@PathVariable String teamCode, @RequestParam String name, @RequestParam String type) throws V34Exception {
+        LOG.debug("Requesting ICS calendar for team {}", teamCode);
+        List<Event> events = dataService.getAllEvents(teamCode);
         events = filterFactory.filter(events, type);
-        String response = calendar.getCalendar("Toto", events);
+        String response = calendar.getCalendar(name, events);
         return response;
     }
 
