@@ -54,6 +54,6 @@ public class ICSCalendar implements Calendar {
 
             ical.addEvent(vEvent);
         }
-        return Biweekly.write(ical).tz(TimeZone.getTimeZone("Europe/Paris"), true).go();
+        return Biweekly.write(ical).go();
     }
 }
