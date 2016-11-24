@@ -29,7 +29,6 @@ public class ICSCalendar implements Calendar {
 
             /*VAlarm vAlarm = new VAlarm(Action.audio(), new Trigger(new Duration().hparse()))
             vEvent.addAlarm(vAlarm); */
-
             vEvent.setColor("YELLOW");
             vEvent.setUrl("http://wwww.volley34.fr");
             vEvent.setDateEnd(event.getEndDate(), !event.isFullDay());
