@@ -63,9 +63,9 @@ public class UIController {
     private String getUrl(HttpServletRequest request) {
         String url = request.getScheme() + "://" + request.getServerName();
         if (request.getServerPort() != 80 || !request.getScheme().equalsIgnoreCase("http")) {
-            url += ":" + request.getServerPort() + "/";
+            url += ":" + request.getServerPort();
         }
-        url += (request.getContextPath() != null && !request.getContextPath().isEmpty() ? request.getContextPath() + "/" : "");
+        url +=  "/" + (request.getContextPath() != null && !request.getContextPath().isEmpty() ? request.getContextPath() + "/" : "");
         return url;
     }
 
