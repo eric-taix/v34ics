@@ -32,7 +32,7 @@ public class CalendarController {
         LOG.debug("Requesting ICS calendar for team {}", team);
         List<Event> events = dataService.getAllEvents(team);
         events = filterFactory.filter(events, type);
-        String response = calendar.getCalendar(events);
+        String response = calendar.getCalendar("Toto", events);
         return response;
     }
 
